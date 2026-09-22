@@ -5,7 +5,7 @@ import notesRouter from "./routes/notes.route.js";
 const app = express();
 import cors from 'cors'
 
-const port=3200
+const port = process.env.PORT || 3200;
 
 app.use(cors())
 app.use(express.json());
@@ -17,10 +17,10 @@ app.get('/' ,function(req,res){
     res.send("my first node")
 });
 
-app.use('./api/note', notesRouter)
+
 
 
 app.use('/api/note', notesRouter);
-app.listen(port,function(){
+app.listen(port,()=>{
     console.log(`Server is running port${port}`)
 })
